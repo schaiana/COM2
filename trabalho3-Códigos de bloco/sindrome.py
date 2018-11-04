@@ -4,19 +4,19 @@ import numpy as np
 import komm
 
 def decode_HDD(b, param):
-     
+
     code = komm.HammingCode(param['n']-param['k'])
     u_hat = code.decode(b, method = 'exhaustive_search_hard')
- 
+
     return u_hat
 
 def decode_SDD(r, param):
     code = komm.HammingCode(param['n']-param['k'])
-    mod = komm.PAModulation(2)
-    b = mod.demodulate(r)
-    u_hat = code.decode(b, method = 'exhaustive_search_soft')
-      
-   
+    #mod = komm.PAModulation(2)
+    #b = mod.demodulate(r)
+    u_hat = code.decode(r, method = 'exhaustive_search_soft')
+
+
     return u_hat
 '''
 % Codigo de Hamming
@@ -40,7 +40,6 @@ b_polar = (b*2)-1;
 r = awgn(b_polar,1);
 objeto_sindrome = Sindrome;
 u_estimado = objeto_sindrome.SDD(r,codigo)
-
 function [u_hat] = SDD(r,struct_info)
     c = struct_info.c;
     k = struct_info.k;
