@@ -10,8 +10,3 @@ param['k'] = 4
 
 u_hat = sindrome.decode_HDD(b, param)
 print('b = {}\n û = {}'.format(b, u_hat))
-
-
-
-
-
